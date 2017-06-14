@@ -1,0 +1,29 @@
+﻿<html data-ng-app="myapp">
+    <head>
+        <title>
+            Check
+        </title>
+ 
+    </head>
+    <body data-ng-controller="myctrl">
+        <div>
+            {{firstname + lastname}}
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+        var app = angular.module('myapp', []);
+        var uri = 'api/Check';
+        app.controller('myctrl', function($scope, $http){
+            $http({
+                method: 'GET',
+                url: uri
+            }).then(function successCallback(response) {
+                //$scope.details = response.data;
+                alert(response.data);
+            });
+
+
+    });
+     </script>
+</html>
